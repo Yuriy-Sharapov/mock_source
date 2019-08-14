@@ -1,0 +1,38 @@
+<mvc:View controllerName="msrcmock_source.controller.main_view" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<SearchField 
+						id="fioSearchField"
+						placeholder="Укажите фамилию, имя, отчество"
+						search="handleSearch"/>
+
+					<Table items="{path: '/Workers', templateShareable:false}">
+						<columns>
+							<Column>
+								<Text text="ФИО"/>
+							</Column>
+							<Column>
+								<Text text="Штатная должность"/>
+							</Column>
+							<Column>
+								<Text text="Подразделение"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle" type="Active" press="handleSelect">
+								<cells>
+									<Text text="{fio}"/>
+									<Text text="{post}"/>
+									<Text text="{department}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

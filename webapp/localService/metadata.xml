@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+	<edmx:DataServices
+		xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+		<Schema Namespace="NerdWorker.Models"
+			xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+			xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+			<EntityType Name="Worker">
+				<Key>
+					<PropertyRef Name="workerid" />
+				</Key>
+				<Property Name="workerid" Type="Edm.Int32" Nullable="false" />
+				<Property Name="fio" Type="Edm.String" Nullable="false" />
+				<Property Name="post" Type="Edm.Stringe" Nullable="false" />
+				<Property Name="department" Type="Edm.String" Nullable="false" />
+			</EntityType>
+			<ComplexType Name="LocationDetail" />
+			<EntityContainer Name="NerdWorkers" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="Workers" EntityType="NerdWorker.Models.Worker" />
+				<FunctionImport Name="FindUpcomingWorkers" EntitySet="Workers" ReturnType="Collection(NerdWorker.Models.Worker)" m:HttpMethod="GET" />
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
